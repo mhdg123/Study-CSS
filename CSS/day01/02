@@ -1,0 +1,72 @@
+css에서 image가 확대 축소되려면
+width: 100%로 주면 컨테이너의 크기대비 % 즉 100%는 옆으로 꽉차게됨 그리고 height값을 auto로주면 width의 크기에 맞게 height로 자동변환 
+하지만 너무 커지는 단점이 있어서 화면이 커져도 이미지의 일정크기 이상 커지지 않게 하려면 width값을 max-width로 100%주게 되면 화면이 아무리 커져도 일정크기 이상은 커지지 않는다
+width값을 따로 100%주고 max-width값을 따로 줄 수 있다
+
+backgroud-image또한 resizing이 가능하다
+ background-size : contain
+	이미지의 종횡비(aspect ratio)는 유지된채 content 에 
+	맞추어진다.  content 에 빈 공간 발생 가능 (no-repeat 인 경우)
+
+ background-size: 100% 100%;
+  	배경 이미지는 content 영역에 빈 공간 없이 가득 채워지게 
+  	좌우 꽉 채워지게 늘어난다(혹은 줄어든다)
+  	종횡비는 유지되지 않는다
+
+ background-size: cover;
+  	배경 이미지는 content 영역을 가득 채우긴 하나
+  	이미지의 종횡비가 유지된다.  이미지의 잘림(clip) 발생
+
+Flexbox 레이아웃
+
+기존에 학습했던 레이아웃 방법들
+    1. display : block / inline / table
+    2. position : static, relative, absolute, fixed ...
+
+FlexibleBox 레이아웃
+    float 나 position 을 사용하지 않고도
+    반응형 레이아웃 을 손쉽게 작성할수 있다.
+
+FlexibleBox 사용하기
+    1. 우선 flex container 정의
+    2. container 안에 flex item 들 나열
+
+Flex container 의 property 들
+    flex-direction : 
+        column, column-reverse, row, row-reverse
+    flex-wrap : 
+        > nowrap(디폴트), wrap,  wrap-reverse
+    flex-flow : 
+        > flex-direction 과 flex-wrap 을 동시에 지정가능
+    justify-content : 
+        > center, flex-start(디폴트), flex-end, space-around, space-between
+    align-items : 
+        > center flex-start, flex-end, stretch(디폴트), baseline
+    align-content :  flex line 을 정렬하는데 사용
+        > space-between, space-around, stretch(디폴트), center,  flex-start, flex-end 
+
+flex-direction 
+        column - 위 → 아래  배치
+        column-reverse - 아래 → 위 배치
+        row - 왼쪽 → 오른쪽 배치
+        row-reverse  - 왼쪽 ← 오른쪽 배치
+
+
+      display: grid;
+      grid-template-columns: auto auto auto;
+      3개의 컬럼으로 바뀜 균등분배가 되서 동작함 
+
+
+content 에 관계 없이 flexible 아이템들을 동일한 length 로 맞춘다
+	display: flex;
+	
+flexible 아이템들이 wrap 될것인지 여부
+		wrap / nowrap 
+
+	flex-wrap: wrap;
+
+
+	flex: 25%;
+	 각각의 flexitem들이 25%씩 차지함
+	max-width: 25%;
+최대 늘어날 수 있는 크기가 25%
