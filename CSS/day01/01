@@ -1,0 +1,57 @@
+box-sizing은 박스의 크기를 어떤 것을 기준으로 계산할지를 정하는 속성이다.
+
+content-box : 콘텐트 영역을 기준으로 크기를 정한다.
+border-box : 테두리를 기준으로 크기를 정한다.
+initial : 기본값으로 설정한다.
+inherit : 부모 요소의 속성값을 상속받는다.
+
+viewpoter가 적용되지 않은경우 필히 '확대' 및 '좌우 스크롤' 을 발생해야 할것이다.  
+사용자게게 있어 수직스크롤에 익숙하지만,
+수평스크롤은 매우 불편한 경험이다.
+페이지 내용을 보기 위해 '확대' 를 해야 하는 것도 사용자를 불편하게 하는 요소다
+ 
+viewport : '웹페이지'에서 사용자게에 '보여지는 영역', 기기마다 다르다 (pc, 모바일, 태블릿)
+		
+	'큰 웹페이지' 를 '작은 기기'에서 보려하면..viewport 가 작아서 불편하다.
+	확대및 좌우 스크롤 발생 유발...  웹페이지 로딩후에 이러면 곤란...
+		
+	해결방법!
+	HTML5 에선 다음과 같이 <meta> 태그 에서 설정.
+	어떠한 사이즈의 기기에서도 일단. 웹페이지가 로딩될때 
+	viewport에 딱 맞게 zoom level 이 조정되도록 한다.
+	
+	★ 이는 Responsive Web Design 구현의 필수요소 입니다
+ 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 향후 모든 웹페이지에 기본으로 이 옵션이 들어가게 템플릿 설정해두자 
+
+
+반응형 웹 (Responsive Web)
+- 모든종류의 기기 (PC, 태블릿, 모바일..) 마다 최적화된 레이아웃 제공
+- HTML & CSS 만으로 구현됨.
+- JavsScript 아님.
+
+반응형 웹 제작 단계
+1. viewport 설정
+2. grid 설정
+3. box-sizing 설정
+
+기본적으로 CSS는 적층형 (덮어쓰기) 으로 적용된다.
+그래서 모바일을 생각해서 만들 때는 css적용에 모바일부터 적는다 모바일보다 사양이 좋은 pc에 해당하는 css는 어차피 덮어쓰기가 되면서 계산하면서 내려오므로 
+계산을 다하고 마지막을 덮어쓸 때 pc를 마지막으로 해놓고 처음을 모바일적용페이지css로 잡는다
+
+ @media 에서
+	max-width: ~ : ~ 보다 작은 경우
+	min-width: ~ : ~ 보다 큰 경우 
+@media only screen and (max-width: 화면크기) 했을 때 지정해준 화면크기보다 작을 경우 적용되는 css 
+    only screen and 는 생략가능 
+
+
+종횡비에 따른 적용 가능
+@media (orientation: landscape) 풍경화처럼 옆으로 넓어졌을 때 css적용
+
+@media (orientation portrait) 인물화처럼 세로로 길어졌을 때 css적용 
+
+RWD 에선, 레이아웃이 바뀌는 크기를 을 breakpoint 라 한다
+  
+  
